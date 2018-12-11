@@ -1,0 +1,1 @@
+include ':library', ':sample', ':pure_theme', ':note', ':test', ':util', ':JavaTest'

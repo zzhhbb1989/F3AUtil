@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 默认列表留白 -->
+    <dimen name="list_padding">15dp</dimen>
+
+    <!-- 默认字体大小 -->
+    <dimen name="text_default">16sp</dimen>
+</resources>

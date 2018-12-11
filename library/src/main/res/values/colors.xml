@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- 默认页面颜色 -->
+    <color name="page_default">@color/colorPrimary</color>
+    <!-- 默认文字颜色 -->
+    <color name="text_default">#282828</color>
+    <color name="text_hint_default">#cacaca</color>
+    <!-- 分割线颜色 -->
+    <color name="divider_default">#e5e5e5</color>
+    <!-- 边框颜色 -->
+    <color name="border_default">#e5e5e5</color>
+    <color name="border_focused_default">#989898</color>
+
+    <color name="color_999999">#999999</color>
+    <color name="color_858585">#858585</color>
+    <color name="color_656565">#656565</color>
+    <color name="color_048ef2">#048ef2</color>
+    <color name="color_ff8400">#ff8400</color>
+    <color name="color_b2b2b2">#b2b2b2</color>
+    <color name="color_bdbdbd">#bdbdbd</color>
+    <color name="color_e3e3e5">#e3e3e5</color>
+    <color name="color_f43531">#f43531</color>
+    <color name="color_ffa200">#ffa200</color>
+    <color name="color_00c200">#00c200</color>
+    <color name="color_ff0000">#FF0000</color>
+    <color name="color_ffff4d">#ffff4d</color>
+    <color name="color_eeeeee">#eeeeee</color>
+</resources>
