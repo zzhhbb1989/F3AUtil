@@ -30,10 +30,6 @@ dependencies {
     compile 'com.jude:easyrecyclerview:4.4.2'
     // json
     compile 'com.alibaba:fastjson:latest.integration'
-    // toast
-    compile 'com.github.AcmenXD:Toaster:2.0'
-    // log
-    compile 'com.orhanobut:logger:latest.integration'
     // status bar
     compile 'com.jaeger.statusbarutil:library:1.5.1'
     // 跨线程通信

@@ -20,7 +20,7 @@ import f3a.util.resource.DimenUtil;
  * @since 2018-08-21
  */
 @SuppressWarnings({"ConstantConditions", "unchecked"})
-public class BaseDialog {
+public class DialogBuilder {
     
     Context mContext;
     Dialog dialog;
@@ -28,27 +28,27 @@ public class BaseDialog {
     View customView;
     @LayoutRes int customViewId = 0;
     
-    public BaseDialog(@NonNull Context context) {
+    public DialogBuilder(@NonNull Context context) {
         this(context, R.style.dialog_base);
     }
     
-    public BaseDialog(@NonNull Context context, int themeResId) {
+    public DialogBuilder(@NonNull Context context, int themeResId) {
         mContext = context;
         dialog = new Dialog(context, themeResId);
         cancelable(true).canceledOnTouchOutside(true).width(0.8F).height(0);
     }
     
-    public <T extends BaseDialog> T contentView(View view) {
+    public <T extends DialogBuilder> T contentView(View view) {
         customView = view;
         return (T) this;
     }
     
-    public <T extends BaseDialog> T contentView(@LayoutRes int id) {
+    public <T extends DialogBuilder> T contentView(@LayoutRes int id) {
         customViewId = id;
         return (T) this;
     }
     
-    public <T extends BaseDialog> T width(float width) {
+    public <T extends DialogBuilder> T width(float width) {
         if (width == 0F) {
             lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
         } else if (width > 0) {
@@ -63,7 +63,7 @@ public class BaseDialog {
         return (T) this;
     }
     
-    public <T extends BaseDialog> T height(float height) {
+    public <T extends DialogBuilder> T height(float height) {
         if (height == 0F) {
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         } else if (height > 0) {
@@ -78,31 +78,31 @@ public class BaseDialog {
         return (T) this;
     }
     
-    public <T extends BaseDialog> T gravity(int gravity) {
+    public <T extends DialogBuilder> T gravity(int gravity) {
         if (gravity >= 0) {
             lp.gravity = gravity;
         }
         return (T) this;
     }
     
-    public <T extends BaseDialog> T animations(@StyleRes int id) {
+    public <T extends DialogBuilder> T animations(@StyleRes int id) {
         if (id != 0) {
             lp.windowAnimations = id;
         }
         return (T) this;
     }
     
-    public <T extends BaseDialog> T cancelable(boolean cancel) {
+    public <T extends DialogBuilder> T cancelable(boolean cancel) {
         dialog.setCancelable(cancel);
         return (T) this;
     }
     
-    public <T extends BaseDialog> T canceledOnTouchOutside(boolean cancel) {
+    public <T extends DialogBuilder> T canceledOnTouchOutside(boolean cancel) {
         dialog.setCanceledOnTouchOutside(cancel);
         return (T) this;
     }
     
-    public <T extends BaseDialog> T show() {
+    public <T extends DialogBuilder> T show() {
         dialog.show();
         WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
         if (lp.width != 0) {
@@ -131,32 +131,32 @@ public class BaseDialog {
         return dialog.isShowing();
     }
     
-    public <T extends BaseDialog> T dismiss() {
+    public <T extends DialogBuilder> T dismiss() {
         dialog.dismiss();
         return (T) this;
     }
     
-    public <T extends BaseDialog> T cancel() {
+    public <T extends DialogBuilder> T cancel() {
         dialog.cancel();
         return (T) this;
     }
     
-    public <T extends BaseDialog> T onShowListener(DialogInterface.OnShowListener listener) {
+    public <T extends DialogBuilder> T onShowListener(DialogInterface.OnShowListener listener) {
         dialog.setOnShowListener(listener);
         return (T) this;
     }
     
-    public <T extends BaseDialog> T onDismissListener(DialogInterface.OnDismissListener listener) {
+    public <T extends DialogBuilder> T onDismissListener(DialogInterface.OnDismissListener listener) {
         dialog.setOnDismissListener(listener);
         return (T) this;
     }
     
-    public <T extends BaseDialog> T onCancelListener(DialogInterface.OnCancelListener listener) {
+    public <T extends DialogBuilder> T onCancelListener(DialogInterface.OnCancelListener listener) {
         dialog.setOnCancelListener(listener);
         return (T) this;
     }
     
-    public <T extends BaseDialog> T onKeyListener(DialogInterface.OnKeyListener listener) {
+    public <T extends DialogBuilder> T onKeyListener(DialogInterface.OnKeyListener listener) {
         dialog.setOnKeyListener(listener);
         return (T) this;
     }

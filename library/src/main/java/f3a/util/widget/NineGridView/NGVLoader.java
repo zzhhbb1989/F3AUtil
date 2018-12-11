@@ -9,7 +9,8 @@ import android.widget.ImageView;
 import f3a.util.resource.DimenUtil;
 
 /**
- * 加载器，用于加载各种属性
+ * 加载器，用于加载各种属性 Not finished yet..
+ *
  * @author Bob
  * @since 2018-09-03
  */

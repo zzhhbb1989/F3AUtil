@@ -40,26 +40,6 @@ public class TagInfo {
         this.value = value;
     }
     
-    ////////////////////// 病种 ///////////////////////
-    
-    public void setDisease_species_id(String value) {
-        setValue(value);
-    }
-    
-    public void setDisease_species_name(String name) {
-        setName(name);
-    }
-    
-    ////////////////////// 医院 ///////////////////////
-    
-    public void setHospital_id(String value) {
-        setValue(value);
-    }
-    
-    public void setHospital_name(String name) {
-        setName(name);
-    }
-    
     
     
     ////////////////////// 操作 ///////////////////////
@@ -88,40 +68,7 @@ public class TagInfo {
     
     
     
-    ////////////////////// 选项数据 ///////////////////////
-    
-    public static List<TagInfo> typeList;
-    
-    private static String typeValue;
-    
-    public static void setTypeValue(String value) {
-        typeValue = value;
-//        SharedPreferencesUtil.put("type", typeValue);
-    }
-    
-    public static String getTypeValue() {
-        return typeValue;
-    }
-    
-    public static String getTypeName() {
-        return getNameByValue(typeList, typeValue);
-    }
-    
-    public static List<TagInfo> hospitalList;
-    
-    public static void init() {
-//        typeValue = SharedPreferencesUtil.get("type");
-    }
-    
-    public static void clear() {
-        typeList = null;
-        typeValue = null;
-        hospitalList = null;
-//        SharedPreferencesUtil.remove("type");
-    }
-    
     ////////////////////// 获取数据 ///////////////////////
-    
     
     public interface OnGetDataCallback {
         void onGetData();

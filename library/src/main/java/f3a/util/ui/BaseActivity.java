@@ -25,7 +25,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import f3a.util.dialog.BaseDialog;
+import f3a.util.dialog.DialogBuilder;
 import f3a.util.resource.DimenUtil;
 import f3a.util.resource.ImageUtil;
 import f3a.util.text.TextUtil;
@@ -174,7 +174,7 @@ public abstract class BaseActivity extends SupportActivity {
         }
     }
     
-    class LoadingDialog extends BaseDialog {
+    class LoadingDialog extends DialogBuilder {
         
         TextView tvMsg;
     

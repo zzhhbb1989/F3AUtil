@@ -8,6 +8,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.f3a.f3autil.R;
@@ -34,22 +35,30 @@ public class WebBrowserActivity extends BaseActivity {
     
     @Override
 	protected void initData() {
-	    webView = findViewById(R.id.webview);
 	    loading = findViewById(R.id.loading);
 		setTitle(getIntent().getStringExtra(TITLE));
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						
-						try {
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                webView = new WebView(mContext);
+                                FrameLayout container = findViewById(R.id.container);
+                                container.addView(webView);
+                            }
+                        });
+                        while (webView == null) {
+                            Thread.yield();
+                        }
+                        try {
 							webView.getSettings().setJavaScriptEnabled(true);
 							webView.getSettings().setAllowFileAccess(true);
 							webView.getSettings().setPluginState(PluginState.ON);

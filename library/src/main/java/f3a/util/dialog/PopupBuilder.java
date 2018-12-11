@@ -26,7 +26,7 @@ import f3a.util.resource.DimenUtil;
  * @since 2018-08-27
  */
 @SuppressWarnings({"ConstantConditions", "unchecked"})
-public class BasePopup {
+public class PopupBuilder {
     
     Context mContext;
     PopupWindow popup;
@@ -36,13 +36,13 @@ public class BasePopup {
     List<CharSequence> itemList = new ArrayList<>();
     AdapterView.OnItemClickListener onItemClickListener;
     
-    public BasePopup(Context context) {
+    public PopupBuilder(Context context) {
         mContext = context;
         popup = new PopupWindow(context);
         width(0.5F).height(-2).focusable(true);
     }
     
-    public <T extends BasePopup> T width(float width) {
+    public <T extends PopupBuilder> T width(float width) {
         if (width == 0F) {
             lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
         } else if (width > 0) {
@@ -57,7 +57,7 @@ public class BasePopup {
         return (T) this;
     }
     
-    public <T extends BasePopup> T height(float height) {
+    public <T extends PopupBuilder> T height(float height) {
         if (height == 0F) {
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         } else if (height > 0) {
@@ -72,17 +72,17 @@ public class BasePopup {
         return (T) this;
     }
     
-    public <T extends BasePopup> T contentView(View contentView) {
+    public <T extends PopupBuilder> T contentView(View contentView) {
         this.contentView = contentView;
         return (T) this;
     }
     
-    public <T extends BasePopup> T focusable(boolean focusable) {
+    public <T extends PopupBuilder> T focusable(boolean focusable) {
         popup.setFocusable(focusable);
         return (T) this;
     }
     
-    public <T extends BasePopup> T list(List<CharSequence> list) {
+    public <T extends PopupBuilder> T list(List<CharSequence> list) {
         itemList.clear();
         if (list != null) {
             itemList.addAll(list);
@@ -90,7 +90,7 @@ public class BasePopup {
         return (T) this;
     }
     
-    public <T extends BasePopup> T list(CharSequence... list) {
+    public <T extends PopupBuilder> T list(CharSequence... list) {
         itemList.clear();
         if (list != null) {
             Collections.addAll(itemList, list);
@@ -98,35 +98,35 @@ public class BasePopup {
         return (T) this;
     }
     
-    public <T extends BasePopup> T onDismissListener(PopupWindow.OnDismissListener listener) {
+    public <T extends PopupBuilder> T onDismissListener(PopupWindow.OnDismissListener listener) {
         popup.setOnDismissListener(listener);
         return (T) this;
     }
     
-    public <T extends BasePopup> T onItemClickListener(AdapterView.OnItemClickListener listener) {
+    public <T extends PopupBuilder> T onItemClickListener(AdapterView.OnItemClickListener listener) {
         onItemClickListener = listener;
         return (T) this;
     }
     
-    public <T extends BasePopup> T showAsDropDown(View anchor) {
+    public <T extends PopupBuilder> T showAsDropDown(View anchor) {
         show();
         popup.showAsDropDown(anchor);
         return (T) this;
     }
     
-    public <T extends BasePopup> T showAsDropDown(View anchor, int x, int y) {
+    public <T extends PopupBuilder> T showAsDropDown(View anchor, int x, int y) {
         show();
         popup.showAsDropDown(anchor, x, y);
         return (T) this;
     }
     
-    public <T extends BasePopup> T showAtLocation(View parent, int gravity, int x, int y) {
+    public <T extends PopupBuilder> T showAtLocation(View parent, int gravity, int x, int y) {
         show();
         popup.showAtLocation(parent, gravity, x, y);
         return (T) this;
     }
     
-    private <T extends BasePopup> T show() {
+    private <T extends PopupBuilder> T show() {
         if (contentView == null) {
             ListView listView = new ListView(mContext);
             listView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -177,7 +177,7 @@ public class BasePopup {
         return (T) this;
     }
     
-    public <T extends BasePopup> T dismiss() {
+    public <T extends PopupBuilder> T dismiss() {
         popup.dismiss();
         return (T) this;
     }

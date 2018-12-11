@@ -273,7 +273,7 @@ public class DialogUtil {
                 .show();
     }
 
-    public static class TitleMsgDialog extends BaseDialog {
+    public static class TitleMsgDialog extends DialogBuilder {
 
         TextView tvTitle;
 
@@ -350,42 +350,42 @@ public class DialogUtil {
 
     ////////////////////// 显示屏幕居中自定义对话框 ///////////////////////
 
-    public static BaseDialog showCustomDialog(Context context, View view) {
+    public static DialogBuilder showCustomDialog(Context context, View view) {
         return showCustomDialog(context, view, true);
     }
 
-    public static BaseDialog showCustomDialog(Context context, View view, boolean cancelOutside) {
+    public static DialogBuilder showCustomDialog(Context context, View view, boolean cancelOutside) {
         return showCustomDialog(context, view, cancelOutside, true);
     }
 
-    public static BaseDialog showCustomDialog(Context context, View view, boolean cancelOutside, boolean cancellable) {
+    public static DialogBuilder showCustomDialog(Context context, View view, boolean cancelOutside, boolean cancellable) {
         return showCustomDialog(context, view, 0.8f, cancelOutside, cancellable);
     }
 
-    public static BaseDialog showCustomDialog(Context context, View view, float width, boolean cancelOutside, boolean cancellable) {
+    public static DialogBuilder showCustomDialog(Context context, View view, float width, boolean cancelOutside, boolean cancellable) {
         return showCustomDialog(context, view, width, 0f, cancelOutside, cancellable);
     }
 
-    public static BaseDialog showCustomDialog(Context context, View view, float width, float height,
+    public static DialogBuilder showCustomDialog(Context context, View view, float width, float height,
                                           boolean cancelOutside, boolean cancellable) {
         return showCustomDialog(context, R.style.dialog_custom, view, width, height, cancelOutside, cancellable);
     }
 
-    public static BaseDialog showCustomDialog(Context context, int style, View view, float width, float height,
+    public static DialogBuilder showCustomDialog(Context context, int style, View view, float width, float height,
                                           boolean cancelOutside, boolean cancellable) {
         return showCustomDialog(context, style, view, width, height, cancelOutside, cancellable, 0, Gravity.CENTER);
     }
 
-    public static BaseDialog showCustomDialog(Context context, int style, View view, float width, float height,
+    public static DialogBuilder showCustomDialog(Context context, int style, View view, float width, float height,
                                           boolean cancelOutside, boolean cancellable, int anims, int gravity) {
-        return new BaseDialog(context, style)
+        return new DialogBuilder(context, style)
+                .contentView(view)
                 .width(width)
                 .height(height)
                 .gravity(gravity)
                 .animations(anims)
                 .cancelable(cancellable)
                 .canceledOnTouchOutside(cancelOutside)
-                .contentView(view)
                 .show();
     }
 }
